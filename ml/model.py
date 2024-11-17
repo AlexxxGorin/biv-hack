@@ -6,7 +6,7 @@ import pandas as pd
 import yaml
 from transformers import pipeline
 
-# load config file
+
 config_path = Path(__file__).parent / "config.yaml"
 with open(config_path, "r") as file:
     config = yaml.load(file, Loader=yaml.FullLoader)
