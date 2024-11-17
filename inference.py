@@ -1,8 +1,9 @@
 import pandas as pd
 from transformers import BertTokenizer, BertForSequenceClassification, pipeline
-import argparse
 
 MODEL_DIR = "./turbo_bert"
+INPUT_PATH = "./payments_main.tsv"
+OUTPUT_PATH = "./output.tsv"
 
 def predict(input_file: str, output_file: str):
     model = pipeline(task="text-classification", model=MODEL_DIR)
@@ -21,9 +22,4 @@ def predict(input_file: str, output_file: str):
     result_df.to_csv(output_file, sep="\t", index=False, header=False)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run inference on TSV file.")
-    parser.add_argument("input_file", type=str, help="Path to the input TSV file.")
-    parser.add_argument("output_file", type=str, help="Path to the output TSV file.")
-    args = parser.parse_args()
-
-    predict(args.input_file, args.output_file)
+    predict(INPUT_PATH, OUTPUT_PATH)
