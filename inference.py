@@ -1,7 +1,7 @@
 import pandas as pd
 from transformers import BertTokenizer, BertForSequenceClassification, pipeline
 
-MODEL_DIR = "./turbo_bert"
+MODEL_DIR = "Deenchik/bert-turbo-biv"
 INPUT_PATH = "./payments_main.tsv"
 OUTPUT_PATH = "./output.tsv"
 
